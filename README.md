@@ -20,6 +20,7 @@ $ npm run build
 ### 大方針
 
 - フロントエンドはvuejsで作る
+  - viewmodelでバックエンドのAPIサーバ呼び出し
 - バックエンドはgolangでAPIサーバ作る
   - public はフロントエンドで作成した静的コンテンツを配置
   - API部分はJWT検証
@@ -34,12 +35,31 @@ $ npm run build
 
 #### バックエンド
 
-  - golang
-    - **echo** Webフレームワーク
-    - **gorm** ORマッパー
-    - **go-jwt** JWT
+- golang
+  - **echo** Webフレームワーク
+  - **gorm** ORマッパー
+  - **go-jwt** JWT
+
+### view
+
+- サインアップ画面
+- サインイン画面
+- いいね投稿画面
+  - knowledge一覧、いいね取得、いいね投稿
+  - いいね投稿は３つまで
+- いいね結果画面
+  - いいね一覧取得
+  - いいね詳細画面も
 
 ### model
+
+#### 画面側のモデル
+
+- user
+- knowledge
+- like
+
+#### api側のmodel
 
 - user
   - id, name,password(暗号化して保存)
@@ -48,9 +68,9 @@ $ npm run build
 - like
   - user_id, knowledge_id, reason, comment
 
-### controller
+### viewmodel
 
-apiのハンドラーとして実装するもの
+viewmodelがバインディングするために必要なAPI
 
 #### user
 
@@ -76,18 +96,6 @@ apiのハンドラーとして実装するもの
 - いいね投稿
   - /like/{user_id} POST
 
-### view
-
-画面遷移作るとわかりやすい
-
-- サインアップ画面
-- サインイン画面
-- いいね投稿画面
-  - knowledge一覧、いいね取得、いいね投稿
-  - いいね投稿は３つまで
-- いいね結果画面
-  - いいね一覧取得
-  - いいね詳細画面も
 
 ## Tips
 
